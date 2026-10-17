@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/chef-claude/',
+  base: '/chef-claude-recipe-app/',
 })
