@@ -193,23 +193,25 @@ ul.ingredients-list > li {
 
 
 /* Mobile layout */
+
+/* Mobile layout */
 @media (max-width: 600px) {
     header {
-        height: 70px;
-        gap: 8px;
+        height: 72px;
+        gap: 10px;
         padding: 0 16px;
     }
 
     header > img {
-        width: 40px;
+        width: 42px;
     }
 
     header > h1 {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
 
     main {
-        padding: 28px 16px 24px;
+        padding: 30px 12px 28px;
     }
 
     .add-ingredient-form {
@@ -218,50 +220,89 @@ ul.ingredients-list > li {
 
     .add-ingredient-form > input {
         width: 100%;
-        padding: 10px;
+        min-width: 0;
+        padding: 13px 12px;
+        font-size: 1rem;
     }
 
     .add-ingredient-form > button {
         width: auto;
-        padding: 10px 12px;
+        padding: 12px 14px;
+        font-size: 0.95rem;
         white-space: nowrap;
     }
 
     .get-recipe-container {
         flex-direction: column;
         align-items: stretch;
-        gap: 12px;
-        padding: 18px;
+        gap: 14px;
+        padding: 20px;
     }
 
     .get-recipe-container h3 {
         margin-top: 0;
+        font-size: 1.2rem;
+        line-height: 1.5;
     }
 
     .get-recipe-container p {
         margin-bottom: 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
     .get-recipe-container button {
         width: 100%;
-        padding: 12px;
+        padding: 14px;
+        font-size: 1rem;
     }
 
     .suggested-recipe-container {
-        margin-top: 24px;
-        padding: 20px 18px;
-        font-size: 0.95rem;
+        margin-top: 26px;
+        padding: 24px 20px;
+        font-size: 1rem;
+        line-height: 1.8;
         overflow-wrap: anywhere;
     }
 
     .suggested-recipe-container h2 {
-        font-size: 1.35rem;
+        margin-bottom: 18px;
+        font-size: 1.5rem;
+        line-height: 1.4;
     }
 
     .suggested-recipe-container h3 {
-        font-size: 1.05rem;
+        margin-top: 26px;
+        margin-bottom: 12px;
+        font-size: 1.15rem;
+        line-height: 1.5;
+    }
+
+    .suggested-recipe-container ul,
+    .suggested-recipe-container ol {
+        padding-left: 22px;
+    }
+
+    .suggested-recipe-container li {
+        margin-bottom: 12px;
+    }
+
+    .empty-state {
+        margin: 30px auto;
+        padding: 28px 20px;
+    }
+
+    .empty-state h2 {
+        font-size: 1.5rem;
+        line-height: 1.4;
+    }
+
+    .empty-state p {
+        font-size: 1rem;
+        line-height: 1.8;
     }
 }
+
 
 
 
