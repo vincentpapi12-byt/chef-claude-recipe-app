@@ -80,7 +80,7 @@ export default function Main() {
 <button
     
     type="button"
-    className="clear-ingredient-button"
+    className="clear-ingredients-button"
     onClick={clearIngredients}
 >
     Clear ingredients
