@@ -78,8 +78,9 @@ export default function Main() {
         {ingredients.length > 0 && (
     
 <button
+    
     type="button"
-    className="add-ingredient-button"
+    className="clear-ingredient-button"
     onClick={clearIngredients}
 >
     Clear ingredients

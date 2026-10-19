@@ -74,7 +74,8 @@ main {
 
 
 
-.add-ingredient-form > button {
+.add-ingredient-form > button,
+.clear-ingredients-button {
     flex-shrink: 0;
     width: 150px;
     padding: 10px 14px;
@@ -89,7 +90,8 @@ main {
     transition: background-color 0.2s, transform 0.2s;
 }
 
-.add-ingredient-form > button:hover {
+.add-ingredient-form > button:hover,
+.clear-ingredients-button:hover {
     background-color: #33332F;
 }
 
