@@ -51,8 +51,7 @@ export default function Main() {
         <main>
 
          <Turnstile
-            siteKey="0x4AAAAAAFbL-x2HO-7JMNLr
-"
+            siteKey="0x4AAAAAAFbL-x2HO-7JMNLr"
             onSuccess={(token) => setTurnstileToken(token)}
             onExpire={() => setTurnstileToken("")}
             ref={turnstileRef}
