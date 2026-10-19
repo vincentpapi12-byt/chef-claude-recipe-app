@@ -27,6 +27,12 @@ export default function Main() {
         setRecipeShown(false)
     }
 
+    function clearIngredients() {
+    setIngredients([])
+    setRecipe("")
+    setRecipeShown(false)
+}
+
     async function getRecipe() {
         try {
             console.log("Requesting recipe with:", ingredients)
@@ -68,6 +74,12 @@ export default function Main() {
 
                 <button type="submit">Add ingredient</button>
             </form>
+
+        {ingredients.length > 0 && (
+    <button type="button" onClick={clearIngredients}>
+        Clear ingredients
+    </button>
+)}
 
            
 {ingredients.length === 0 ? (
