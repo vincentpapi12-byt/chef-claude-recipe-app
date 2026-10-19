@@ -1,32 +1,24 @@
 
-import recipes from "./recipes"
+const API_URL = "https://chef-claude-ai.vincentpapi12.workers.dev/";
 
-export async function getRecipeFromChefClaude(ingredientsArr) {
-    const userIngredients = ingredientsArr.map(ingredient =>
-        ingredient.trim().toLowerCase()
-    )
+export async function getRecipeFromChefClaude(ingredientsArr, turnstileToken) {
+    const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+        ingredients: ingredientsArr,
+        turnstileToken: turnstileToken,
+}),
+    });
 
-    const matchingRecipes = recipes.filter(recipe =>
-        recipe.ingredients.every(ingredient =>
-            userIngredients.includes(ingredient.toLowerCase())
-        )
-    )
+    const data = await response.json();
 
-    if (matchingRecipes.length === 0) {
-        return `## No exact recipe found yet
-
-Try adding ingredients such as pasta, ground beef, and tomato paste to discover our Beef and Tomato Pasta recipe.`
+    if (!response.ok) {
+        throw new Error(data.error || "Failed to generate a recipe.");
     }
 
-    return matchingRecipes.map(recipe => `
-## ${recipe.name}
-
-### Ingredients
-${recipe.ingredients.map(ingredient => `- ${ingredient}`).join("\n")}
-
-### Instructions
-${recipe.instructions.map((instruction, index) =>
-        `${index + 1}. ${instruction}`
-    ).join("\n")}
-    `).join("\n\n---\n\n")
+    return data.recipe;
 }
+

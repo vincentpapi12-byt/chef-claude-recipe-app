@@ -3,12 +3,15 @@ import React from "react"
 import IngredientsList from "./components/IngredientsList"
 import ClaudeRecipe from "./components/ClaudeRecipe"
 import { getRecipeFromChefClaude } from "./ai"
+import { Turnstile } from "@marsidev/react-turnstile"
 
 export default function Main() {
    const [ingredients, setIngredients] = React.useState([])
 
     const [recipeShown, setRecipeShown] = React.useState(false)
     const [recipe, setRecipe] = React.useState("")
+    const [turnstileToken, setTurnstileToken] = React.useState("")
+    const turnstileRef = React.useRef(null)
 
     function addIngredient(formData) {
         const newIngredient = formData.get("ingredient").trim()
@@ -28,7 +31,7 @@ export default function Main() {
         try {
             console.log("Requesting recipe with:", ingredients)
 
-            const result = await getRecipeFromChefClaude(ingredients)
+            const result = await getRecipeFromChefClaude(ingredients, turnstileToken)
 
             console.log("Recipe received:", result)
 
@@ -37,10 +40,24 @@ export default function Main() {
         } catch (error) {
             console.error("Recipe error:", error)
         }
+
+            finally {
+        setTurnstileToken("")
+        turnstileRef.current?.reset()
+    }
     }
 
     return (
         <main>
+
+         <Turnstile
+            siteKey="0x4AAAAAAFbL-x2HO-7JMNLr
+"
+            onSuccess={(token) => setTurnstileToken(token)}
+            onExpire={() => setTurnstileToken("")}
+            ref={turnstileRef}
+        />
+
             <form action={addIngredient} className="add-ingredient-form">
                 <input
                     type="text"
