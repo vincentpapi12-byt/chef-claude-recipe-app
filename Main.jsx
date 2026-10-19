@@ -76,9 +76,15 @@ export default function Main() {
             </form>
 
         {ingredients.length > 0 && (
-    <button type="button" onClick={clearIngredients}>
-        Clear ingredients
-    </button>
+    
+<button
+    type="button"
+    className="add-ingredient-button"
+    onClick={clearIngredients}
+>
+    Clear ingredients
+</button>
+
 )}
 
            
